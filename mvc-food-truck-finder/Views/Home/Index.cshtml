@@ -1,0 +1,57 @@
+﻿@model IEnumerable<mvc_food_truck_finder.Models.FoodTrucks>;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>San Francisco Food Trucks</h2>
+<h3>Search Closest Food Trucks by Latitude/Longitude</h3>
+
+<p>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+    <p>
+        Latitude: @Html.TextBox("SearchLatitude") &nbsp;&nbsp; Longitude: @Html.TextBox("SearchLongitude") &nbsp;&nbsp;
+        <input type="submit" value="Filter" />
+    </p>
+}
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(foodTruck => foodTruck.applicant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(foodTruck => foodTruck.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(foodTruck => foodTruck.latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(foodTruck => foodTruck.longitude)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var truck in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => truck.applicant)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => truck.address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => truck.latitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => truck.longitude)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.ActionLink("Show Full List", "Index")

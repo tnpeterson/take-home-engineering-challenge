@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/mvc-food-truck-finder.props" />
+</Project>

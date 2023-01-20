@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/food-truck-finder.props" />
-</Project>
